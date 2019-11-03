@@ -1,0 +1,4 @@
+services:
+#    zbior_danych.example:
+#        class: zbiorDanychBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

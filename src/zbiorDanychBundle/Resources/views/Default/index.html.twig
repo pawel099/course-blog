@@ -1,0 +1,12 @@
+  
+ {% for dane in kategoria %}
+   
+ 
+  {{dane.nazwa}} <br>
+  
+  {% for wpisy in dane.wpis %}
+  
+  {{wpisy.moveName}}<p>
+  
+{% endfor %}
+{% endfor %}

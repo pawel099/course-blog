@@ -1,0 +1,209 @@
+<?php
+
+namespace zbiorDanychBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * kategoria
+ *
+ * @ORM\Table(name="kategoria")
+ * @ORM\Entity(repositoryClass="zbiorDanychBundle\Repository\kategoriaRepository")
+ */
+class kategoria
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+	
+	/**
+      * @ORM\OneToMany(targetEntity="wpisy",mappedBy="kategoria")
+      */
+	  
+	 protected $wpis;
+	
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nazwa", type="string", length=155)
+     */
+    private $nazwa;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="rokProdukcji", type="bigint")
+     */
+    private $rokProdukcji;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="czasTrwania", type="bigint")
+     */
+    private $czasTrwania;
+
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set nazwa
+     *
+     * @param string $nazwa
+     *
+     * @return kategoria
+     */
+    public function setNazwa($nazwa)
+    {
+        $this->nazwa = $nazwa;
+
+        return $this;
+    }
+
+    /**
+     * Get nazwa
+     *
+     * @return string
+     */
+    public function getNazwa()
+    {
+        return $this->nazwa;
+    }
+
+    /**
+     * Set rokProdukcji
+     *
+     * @param integer $rokProdukcji
+     *
+     * @return kategoria
+     */
+    public function setRokProdukcji($rokProdukcji)
+    {
+        $this->rokProdukcji = $rokProdukcji;
+
+        return $this;
+    }
+
+    /**
+     * Get rokProdukcji
+     *
+     * @return int
+     */
+    public function getRokProdukcji()
+    {
+        return $this->rokProdukcji;
+    }
+
+    /**
+     * Set czasTrwania
+     *
+     * @param integer $czasTrwania
+     *
+     * @return kategoria
+     */
+    public function setCzasTrwania($czasTrwania)
+    {
+        $this->czasTrwania = $czasTrwania;
+
+        return $this;
+    }
+
+    /**
+     * Get czasTrwania
+     *
+     * @return int
+     */
+    public function getCzasTrwania()
+    {
+        return $this->czasTrwania;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->wpisy = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add wpisy
+     *
+     * @param \zbiorDanychBundle\Entity\wpisy $wpisy
+     *
+     * @return kategoria
+     */
+    public function addWpisy(\zbiorDanychBundle\Entity\wpisy $wpisy)
+    {
+        $this->wpisy[] = $wpisy;
+
+        return $this;
+    }
+
+    /**
+     * Remove wpisy
+     *
+     * @param \zbiorDanychBundle\Entity\wpisy $wpisy
+     */
+    public function removeWpisy(\zbiorDanychBundle\Entity\wpisy $wpisy)
+    {
+        $this->wpisy->removeElement($wpisy);
+    }
+
+    /**
+     * Get wpisy
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getWpisy()
+    {
+        return $this->wpisy;
+    }
+
+    /**
+     * Add wpi
+     *
+     * @param \zbiorDanychBundle\Entity\wpisy $wpi
+     *
+     * @return kategoria
+     */
+    public function addWpi(\zbiorDanychBundle\Entity\wpisy $wpi)
+    {
+        $this->wpis[] = $wpi;
+
+        return $this;
+    }
+
+    /**
+     * Remove wpi
+     *
+     * @param \zbiorDanychBundle\Entity\wpisy $wpi
+     */
+    public function removeWpi(\zbiorDanychBundle\Entity\wpisy $wpi)
+    {
+        $this->wpis->removeElement($wpi);
+    }
+
+    /**
+     * Get wpis
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getWpis()
+    {
+        return $this->wpis;
+    }
+}
