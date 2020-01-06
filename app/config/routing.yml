@@ -1,0 +1,8 @@
+zbior_danych:
+    resource: "@zbiorDanychBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
